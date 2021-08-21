@@ -26,4 +26,3 @@ jobs:
         body: file://email.html
         to: ${{ secrets.EMAILNAME }}
         from: GitHub Actions
-        content_type: text/html
