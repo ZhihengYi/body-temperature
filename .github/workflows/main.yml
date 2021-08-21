@@ -1,0 +1,29 @@
+name: main
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 2,3 * * *'		#在UTC时间2:10,3:10运行，也就是北京时间10点10分和11点10分
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+    - run:  pip install -r ./requirements.txt
+    - run: python ./yzh.py
+    - name: 'Send mail'
+
+      uses: dawidd6/action-send-mail@master
+      with:
+        server_address: smtp.163.com
+        server_port: 465 
+        username: ${{ secrets.EMAILNAME }}	
+        password: ${{ secrets.EMAILSMTP }}
+        subject: 每日体温填报
+        body: file://email.txt
+        to: ${{ secrets.EMAILNAME }}
+        from: GitHub Actions
+        content_type: text/html
