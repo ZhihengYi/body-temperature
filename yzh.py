@@ -14,20 +14,20 @@ timetamp = int(timetamp)
 url  = "http://xscfw.hebust.edu.cn/survey/ajaxLogin"
 url2 = "http://xscfw.hebust.edu.cn/survey/index"  
 url3 = f"http://xscfw.hebust.edu.cn/survey/surveySave?timestamp={timetamp}"
-########################################
+###
 param = {"stuNum": "19L0252069","pwd": "0002223013","vcode": "",}
 header = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62"}
-########################################
+###
 try:
     response = r.post(url=url,params=param,headers=header)
-    sleep(30)
+    sleep(20)
     cookiesJAR = response.cookies
     cookies = cookiesJAR.get_dict()
     res = r.get(url=url2,headers=header,cookies=cookies,params=param)
     c = "登录正常，"
 except:
     c = "登录失败，"
-########################################
+###
 try:
     res.encoding = 'uft-8'
     html = etree.HTML(res.text)
@@ -35,7 +35,7 @@ try:
     d = content[0]
 except:
     d = "情况未知，"
-########################################
+###
 try:
     url4 = 'http://xscfw.hebust.edu.cn/survey/index.action'
     rek = r.get(url=url4,cookies=cookies,headers=header)
@@ -45,7 +45,7 @@ try:
     e = f"，获取sid：{sid}，"
 except:
     e = "获取sid失败，"
-########################################
+###
 try:
     url5 = f'http://xscfw.hebust.edu.cn/survey/surveyEdit?id={sid}'
     rej = r.get(url=url5,cookies=cookies,headers=header)
@@ -57,7 +57,7 @@ try:
     f = f"获取stuId:{stuId}，获取qid:{qid}，"
 except:
     f = "获取stuId qid 失败，"   
-########################################
+####
 try:
     data={
         "id":sid,
@@ -73,7 +73,7 @@ try:
     g = "填写信息正常。"
 except:
     g = "填写信息有误。"
-########################################
+####
 if d == "已完成":
     h = "填报成功！"
 
@@ -85,7 +85,7 @@ elif d == "未完成":
         h = "请手动填写！"
 else:
     h = "请手动填写！"
-########################################
+###
 file=open("email.html",'w+',encoding='UTF-8')
-file.write('体温'+a+'℃、'+b+'℃，'+h+'<br><br>详细情况：'+c+d+e+f+g)
+file.write('体温'+a+'℃、'+b+'℃，'+h+'详细情况：'+c+d+e+f+g)
 file.close()
