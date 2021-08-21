@@ -20,7 +20,7 @@ header = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/53
 ########################################
 try:
     response = r.post(url=url,params=param,headers=header)
-    sleep(5)
+    sleep(30)
     cookiesJAR = response.cookies
     cookies = cookiesJAR.get_dict()
     res = r.get(url=url2,headers=header,cookies=cookies,params=param)
