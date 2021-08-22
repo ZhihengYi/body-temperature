@@ -1,9 +1,13 @@
 name: main
 
 on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
   workflow_dispatch:
   schedule:
-    - cron: '00 2,3 * * *'		#在UTC时间2:00,3:00运行，也就是北京时间10点00分和11点00分
+    - cron: '35 2 * * *'
 
 jobs:
   build:
