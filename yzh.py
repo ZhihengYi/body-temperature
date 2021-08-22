@@ -46,7 +46,7 @@ try:
     rek.encoding = 'utf-8'
     html3 =etree.HTML(rek.text)
     sid = html3.xpath('/html/body/ul/li[1]/@sid')[0]
-    e = f"，获取sid：{sid}，"
+    e = "，获取sid正常，"
 except:
     e = "获取sid失败，"
 
@@ -59,9 +59,9 @@ try:
     html2 = etree.HTML(rej.text)
     stuId = html2.xpath('//*[@id="surveyForm"]/input[2]/@value')[0]
     qid = html2.xpath('//*[@id="surveyForm"]/input[3]/@value')[0]
-    f = f"获取stuId:{stuId}，获取qid:{qid}，"
+    f = "获取stuId qid正常，"
 except:
-    f = "获取stuId qid 失败，"   
+    f = "获取stuId qid失败，"   
 
     
 try:
