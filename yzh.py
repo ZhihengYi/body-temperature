@@ -37,7 +37,7 @@ try:
     content = html.xpath('/html/body/ul/li[1]/div/span/text()')
     d = content[0]
 except:
-    d = ""
+    d = "情况未知？"
 
     
 try:
