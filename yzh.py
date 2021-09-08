@@ -16,7 +16,7 @@ url2 = "http://xscfw.hebust.edu.cn/survey/index"
 url3 = f"http://xscfw.hebust.edu.cn/survey/surveySave?timestamp={timetamp}"
 
 
-param = {"stuNum": "19L0252069","pwd": "0002223013","vcode": "",}
+param = {"stuNum": "19L0252069","pwd": "Lc2#0002223013","vcode": "",}
 header = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.62"}
 
 
