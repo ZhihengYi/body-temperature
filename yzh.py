@@ -94,6 +94,6 @@ else:
     h = "请手动填写！"
 
     
-file=open("email.html",'w+',encoding='UTF-8')
-file.write('体温'+a+'℃、'+b+'℃，'+h+'详细情况：'+c+d+e+f+g)
-file.close()
+#file=open("email.html",'w+',encoding='UTF-8')
+#file.write('体温'+a+'℃、'+b+'℃，'+h+'详细情况：'+c+d+e+f+g)
+#file.close()
